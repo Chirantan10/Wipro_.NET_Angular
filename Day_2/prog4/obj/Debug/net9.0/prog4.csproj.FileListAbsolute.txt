@@ -1,0 +1,14 @@
+E:\wiprotraining\Day_2\prog4\bin\Debug\net9.0\prog4.exe
+E:\wiprotraining\Day_2\prog4\bin\Debug\net9.0\prog4.deps.json
+E:\wiprotraining\Day_2\prog4\bin\Debug\net9.0\prog4.runtimeconfig.json
+E:\wiprotraining\Day_2\prog4\bin\Debug\net9.0\prog4.dll
+E:\wiprotraining\Day_2\prog4\bin\Debug\net9.0\prog4.pdb
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\prog4.GeneratedMSBuildEditorConfig.editorconfig
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\prog4.AssemblyInfoInputs.cache
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\prog4.AssemblyInfo.cs
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\prog4.csproj.CoreCompileInputs.cache
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\prog4.dll
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\refint\prog4.dll
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\prog4.pdb
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\prog4.genruntimeconfig.cache
+E:\wiprotraining\Day_2\prog4\obj\Debug\net9.0\ref\prog4.dll

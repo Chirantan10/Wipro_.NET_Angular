@@ -1,0 +1,178 @@
+Linq Queries
+============================================================================================================
+
+1. Filtering Operators:
+var numbers = new[] { 1, 2, 3, 4, 5, 6 };
+var evenNumbers = numbers.Where(n => n % 2 == 0);
+___________________________________________________________
+Projection Operators
+Select
+var numbers = new[] { 1, 2, 3 };
+var squaredNumbers = numbers.Select(n => n * n);
+Select Many
+(flattens collection inside a collection (into one single array)
+var words = new[] { "hello", "world" };
+var characters = words.SelectMany(w => w.ToCharArray());
+___________________________________________________________
+Sorting Operators
+OrderBy
+var numbers = new[] { 5, 1, 4, 2 };
+var sortedNumbers = numbers.OrderBy(n => n);
+
+OrderByDescending
+var sortedDesc = numbers.OrderByDescending(n => n);
+ThenBy
+var people = new[]
+{
+    new { Name = "John", Age = 30 },
+    new { Name = "Alice", Age = 25 },
+    new { Name = "John", Age = 22 }
+};
+var sortedPeople = people.OrderBy(p => p.Name).ThenBy(p => p.Age);
+
+ThenByDescending
+var sortedPeopleDesc = people.OrderBy(p => p.Name).ThenByDescending(p => p.Age);
+___________________________________________________________
+Aggregation Operators
+
+Count
+var numbers = new[] { 1, 2, 3, 4 };
+var count = numbers.Count();
+
+Sum
+var sum = numbers.Sum();
+
+Average
+var sum = numbers.Average();
+
+Min
+var sum = numbers.Min();
+
+Max
+var sum = numbers.Max();
+
+Any
+Checks if any element matches a condition.
+var hasEven = numbers.Any(n => n % 2 == 0);
+
+All
+var allPositive = numbers.All(n => n > 0);
+
+Contains
+var containsThree = numbers.Contains(3);
+
+Distinct
+var numbersWithDuplicates = new[] { 1, 2, 2, 3, 4, 4 };
+var distinctNumbers = numbersWithDuplicates.Distinct();
+
+Union
+var set1 = new[] { 1, 2, 3 };
+var set2 = new[] { 3, 4, 5 };
+var unionSet = set1.Union(set2);
+
+Intersect
+var intersectSet = set1.Intersect(set2);
+
+Except
+Finds elements in the first sequence that are not in the second.
+var exceptSet = set1.Except(set2);
+
+Partitioning Operators
+Take
+var firstTwo = numbers.Take(2);
+
+Skip
+var firstTwo = numbers.Skip(2);
+
+TakeWhile
+Takes elements while a condition is true.
+var takeWhileLessThanFour = numbers.TakeWhile(n => n < 4);
+
+SkipWhile
+Skips elements while a condition is true.
+var skipWhileLessThanFour = numbers.SkipWhile(n => n < 4);
+_________________________________________________________________________
+Element Operators
+First
+Gets the first element.
+var firstNumber = numbers.First();
+
+FirstOrDefault
+Gets the first element or a default value if none exist.
+var firstEvenOrDefault = numbers.FirstOrDefault(n => n % 2 == 0);
+
+Last
+var lastNumber = numbers.Last();
+
+LastOrDefault
+var lastEvenOrDefault = numbers.LastOrDefault(n => n % 2 == 0);
+
+Single
+var singleElement = new[] { 42,45 }.Single(e=>e>42);
+
+SingleOrDefault
+Gets the only element or default value if none exist.
+var singleOrDefaultElement = new int[] { }.SingleOrDefault();
+
+ElementAt
+var secondElement = numbers.ElementAt(1);
+
+ ElementAtOrDefault
+var outOfRangeElement = numbers.ElementAtOrDefault(10);
+___________________________________________________________________________
+
+Join Operators
+
+
+
+Join
+var employees = new[]
+{
+    new { Id = 1, deptId=1,Name = "Alice" },
+    new { Id = 2, deptId=2,Name = "Bob" }
+};
+var departments = new[]
+{
+    new { Id = 1, Department = "HR" },
+    new { Id = 2, Department = "IT" }
+};
+
+var employeeDepartments = employees.Join(departments,
+    emp => emp.deptId,
+    dept => dept.Id,
+    (emp, dept) => new { emp.Name, dept.Department });
+
+GroupJoin
+Groups matching elements.
+var grouped = employees.GroupJoin(departments,
+    emp => emp.Id,
+    dept => dept.Id,
+    (emp, depts) => new { emp.Name, Departments = depts });
+
+_____________________________________________________________
+Grouping Operators
+GroupBy
+var people = new[]
+{
+    new { Name = "Alice", Age = 25 },
+    new { Name = "Bob", Age = 30 },
+    new { Name = "Charlie", Age = 25 }
+};
+var groupedByAge = people.GroupBy(p => p.Age);
+
+_____________________________________________________________
+
+Conversion Operators
+ToList
+Converts a collection to a list.
+var list = numbers.ToList();
+
+ToArray
+var array = numbers.ToArray();
+
+ToDictionary
+var dictionary = people.ToDictionary(p => p.Name);
+
+DefaultIfEmpty
+var emptyNumbers = new int[] { };
+var defaultIfEmpty = emptyNumbers.DefaultIfEmpty(42);

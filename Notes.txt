@@ -1,0 +1,2524 @@
+// See https://aka.ms/new-console-template for more information
+//Console is a predefined class and WriteLine is a method 
+
+//Source Code -- HLL --- C#
+
+using System; // using is a keyword to import the namespaces (package)
+
+class Program
+{
+
+    // method is in pascal case (eg : AddOperation())
+    static void Main()
+    {
+        int noOfStudent = 5;
+   
+     string[] sName = new string[noOfStudent];
+        
+        Console.WriteLine("Enter the names of 5 students :");
+
+        for (int i = 0; i < noOfStudent; i++)
+        {
+
+            Console.WriteLine("Enter name of student " + (i + 1));
+            sName[i]=Console.ReadLine();
+        }
+         Console.WriteLine("Student Data :");
+            for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine("The " + (i+1) + "student name is : " + sName[i]);
+
+        }
+
+    }
+
+
+}
+
+//create a single dimensional array to store 5 student names by taking input from an user
+//and then display
+
+
+
+// See https://aka.ms/new-console-template for more information
+//Console is a predefined class and WriteLine is a method 
+
+//Source Code -- HLL --- C#
+
+using System; // using is a keyword to import the namespaces (package)
+
+class Program
+{
+
+    // method is in pascal case (eg : AddOperation())
+    static void Main()
+    {
+        int noOfStudent = 5;
+        string[,] sName = new string[noOfStudent,2];
+        
+        Console.WriteLine("Enter the name and age of 5 students :");
+
+        for (int i = 0; i < noOfStudent; i++)
+        {
+
+            Console.WriteLine("Enter name of student " + (i + 1));
+            sName[i, 0] = Console.ReadLine();
+
+              Console.WriteLine("Enter age of student " + (i + 1));
+            sName[i, 1] = Console.ReadLine();
+            
+
+        }
+         Console.WriteLine("Student Data :");
+            for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine("The " + (i+1) + "student name is : " + sName[i,0] + " and age is : "+ sName[i,1]);
+
+        }
+
+    }
+
+
+}
+create a jagged array to store 5 student names and their subject like student 1 has taken 2 subs, student 2 has taken 4 subs and so no by taking input from an user and display.
+Day-1 notes 
+
+what is a Framework :
+It is a software  or it is a collection of many small technologies integrated together to develop applications that can be 
+executed anywhere 
+
+.Net Framework : Library :-  collection of some predefined classes , methods , properties ( .Net package)  
+NuGet is a package manager built specifically  for .NET that contains over no. of package
+It is providing two things
+1) BCL ( Base Class Libraries)
+2) CLR ( Common Language Runtime)
+
+BCL :- It is a basic building block of .Net Programs  .These are installed into the machine when we installed the .NET Framework . (SDK) BCL provides predefined classes and these classes are used for the purpose of APPL DEV.
+
+C:/windows/assembly
+
+CLR :-  It is a core component under the .Net Framework which is responsible for converting the MSIL ( Microsoft Intermediate
+Language) code into native code  .
+
+Source code -> Language compiler  --> MSIL / IL / Managed Code (.dll)(IL Disassembler after disassembling it will be .IL)--> CLR (JIT) -- > Native code(Any OS) -->  Execute
+
+MSIL is a managed code converted by the compiler from HLL and understand by the CLR 
+Then CLR with the help of JIT it get converted into the native code which OS can understand
+JIT is a component of CLR that is responsible for converting MSIL code into Native Code 
+
+
+C# Source code(.cs) -> Language C# compiler(Roslyn)  --> MSIL / IL / Managed Code / CIL --> CLR (JIT) -- > Native code(Any OS) -->  Execute (by OS + CPU ( register / Scheduling of your task) 
+
+Two extensions we have 
+Executable  == .exe
+Library === .DLL 
+
+
+APPlications :
+
+Desktops
+Web app
+Mobile apps
+APIs
+
+1. .Net Framework    -- 2002    ,  supported by windows -only(by default you get when you install windows OS)
+                     -- Desktop applications (WinForms , WPF , ASP.Net)
+                     -- slow 
+                     -- Monolithic
+2. .Net Core / .Net --   .Net Core  --2016 , .net 5 -- 2020  ,, Cross-Platform 
+                    --   Desktop, Asp.net core, Console ,cloud,Mobile
+                    --    Fast
+                    -- Microservices supported(Distributed)
+
+Both of them are using some common c# library 
+
+
+For Modern/Enterprise level applicaions :
+1. Visual Studio 2022  ( Community edition is free)/ vscode editor
+2. .Net SDK 
+
+Includes: .NET CLI Commands (dotnet new  , dotnet build , dotnet run) -- To create a .net desktop c# application 
+           ASP.NET  core 
+           Blazor
+
+
+For legacy/Enterprise or Windows -Only apps:
+1. Visual studio 2022/vscode editor
+2. Add .Net framework  (by default you get with visual studio code editor , or windows os)
+
+
+C# Web APP (.Net Framework) -- IT will run on windows Server/ IIS
+C# web APP(.Net core ) --  can run on cloud platforms like azure , docker etc...
+ 
+
+Conventions to follow while writing a C# program
+1.  class name  :  User
+2.  method name : AddOperations()
+3.  local variable : camel case  : userName, password
+
+
+
+Data Types:
+
+value data types 		Pointer Data Type		Reference Data Type
+
+predefined	userdefined		 		            predefined	userdefined
+
+Integer		Enumeration					    Objects 	Class
+Boolean		Structure					    Strings		Interface
+Float
+Char
+
+short = Int16
+int = Int32
+long = Int64 
+
+
+using System; //package name -- > imported the built in package
+
+namespace CalculatorOperations // --> namespace declaration
+
+{
+
+    internal class Program
+    {
+        //main is the entry point of your program
+        static void Main(string[] args)
+        {
+
+          //  unsafe
+            {
+                int number = 456;
+                //   int* ptr = &number;
+
+                int a ;
+                int b ;
+                string s = "Hello";
+                char ch = 'B';
+                //Int16
+                short num1 = 234;
+                //Int32
+
+                //Int64 
+                long num = 5767;
+
+                double price = 45.00;
+
+                Decimal marks = 45.7M;
+
+                Console.WriteLine($"Value : {number} ");
+             //   Console.WriteLine($"The address : {(int)ptr}");
+
+
+                Console.WriteLine("Char : " + ch);
+                Console.WriteLine("Equivalent Number : " + (byte)ch);
+                Console.WriteLine("The minimum and maximum value size : " + char.MinValue + " " + char.MaxValue);
+                Console.WriteLine("The char size : " + sizeof(char));
+
+                Console.WriteLine("Sum of 2 numbers : " + (a+b));
+                Console.ReadKey();
+            }
+        }
+
+
+    }
+}
+
+
+using System; //package name -- > imported the built in package
+
+namespace CalculatorOperations // --> namespace declaration
+
+{
+
+    internal class Program
+    {
+        //main is the entry point of your program
+        static void Main(string[] args)
+        {
+
+          //  unsafe
+            {
+              //  int number = 456;
+                //   int* ptr = &number;
+
+                int a ;
+                int b ;
+
+
+
+
+                //   Console.WriteLine($"Value : {number} ");
+                //   Console.WriteLine($"The address : {(int)ptr}");
+
+
+
+                Console.WriteLine("Enter the first number : ");
+                a =  Convert.ToInt32(Console.ReadLine());
+                   Console.WriteLine("Enter the second number : ");
+                b =  Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Sum of 2 numbers : " + (a+b));
+                Console.ReadKey();
+            }
+        }
+
+
+    }
+}
+Day-2 notes
+
+In C# program will start from the Main() which is the entry point of your project 
+
+
+class and the object 
+
+what is class -- IT is a blue print of your program structure
+what is and object --- Object is a real time entity (has some existence (like its
+own properties and behaviour(action -- Method)) )
+What is Method -- Method is some set of statements or instructions
+
+for eg:
+
+ public void Display() 
+ { 
+    int a =10;
+    Console.Writeline("Display method called"); 
+    }
+
+
+
+
+class Program{                        class Student{
+
+static void Main()                    public void Display(){
+{
+    // Class reference variable is 
+    // pointing to an object
+   Student s = new Student();                                 Console.WriteLine("sffhkfh");
+     s.Display();
+}
+                                           }
+}
+
+
+BCL : Core Libraries
+System
+System.Collections
+System.IO
+System.Threading
+
+CLR :
+JIT Compilation
+Garbage Collections
+Exception Handling 
+Security
+Thread Management
+
+
+JDK(JVM + class libraries)
+
+
+All user defined classes Employee , Program  are inherited from using System.Object 
+which gives you some predefined methods
+like 
+ToString()
+Equals()
+GetHashCode()
+GetType()
+
+
+Control Statements :
+
+which gives the flow of execution in a C# program so there are three types:
+1. Sequential  -- step by step
+2. Conditional -- Decision based (if/else/switch)
+3. Branch Execution-- (break/continue/return)
+4. Iterative -- Loops  -- (for/while/do while)
+
+
+syntax:
+
+int age;
+if(age>25)
+{
+  Console.WriteLine("You are eligible for a loan");
+}
+else{
+ Console.WriteLine("You are not eligible for a loan");
+
+}
+
+//Multiple Conditional
+if(age>25)
+{
+ CWL( you are eligible for loan );
+}
+else if (age >18)
+{
+
+  CWL( you are eligible for loan and voting both);
+}
+else{
+
+}
+
+
+if(country == "India")
+{
+
+  if(state == "Delhi")
+  {
+
+  }
+  else
+  {
+
+  }
+}
+else{
+
+}
+
+
+
+
+using System;
+
+namespace StudentProgram;  // Package
+class Student
+{
+
+
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public int[] SubjectMarks { get; set; }
+
+
+}
+
+
+using System;
+using StudentProgram;
+class StudentArray
+{
+
+
+    static void Main()
+    {
+
+        int studentCount = 1;
+        Student[] students = new Student[studentCount];//Array of student class 
+        // string[][] studentSubject = new string[noOfStudent][];
+        for (int i = 0; i < studentCount; i++)
+        {
+            students[i] = new Student();// With a new keyword object will be created and stored in a memory of a student class 
+            Console.WriteLine("Enter name of student");
+            students[i].Name = Console.ReadLine();
+
+            Console.WriteLine("Enter Age of student");
+            students[i].Age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("How many subjects you want to store marks");
+            int subjectCount = Convert.ToInt32(Console.ReadLine());
+
+            students[i].SubjectMarks = new int[subjectCount];
+
+            for (int j = 0; j < subjectCount; j++)
+            {
+
+                Console.Write("Enter marks for subjects :");
+                students[i].SubjectMarks[j] = Convert.ToInt32(Console.ReadLine());
+
+            }
+
+
+        }
+
+        Console.WriteLine("Student obj details are given below :");
+
+        foreach (Student s in students)
+        {
+            Console.WriteLine(s.Name);// provided the value using get property
+            Console.WriteLine(s.Age);
+
+            foreach (int marks in s.SubjectMarks)
+            {
+                Console.WriteLine("Students Marks are : " + marks);
+                    }
+
+        }
+    }
+
+}
+    
+using System;
+using StudentProgram;
+class StudentArray
+{
+
+
+    static void Main()
+    {
+
+        int studentCount = 1;
+        Student[] students = new Student[studentCount];//Array of student class 
+        // string[][] studentSubject = new string[noOfStudent][];
+        for (int i = 0; i < studentCount; i++)
+        {
+            students[i] = new Student();// With a new keyword object will be created and stored in a memory of a student class 
+            Console.WriteLine("Enter name of student");
+            students[i].Name = Console.ReadLine();
+
+            Console.WriteLine("Enter Age of student");
+            students[i].Age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("How many subjects you want to store marks");
+            int subjectCount = Convert.ToInt32(Console.ReadLine());
+
+            students[i].SubjectMarks = new int[subjectCount];
+
+            for (int j = 0; j < subjectCount; j++)
+            {
+
+                Console.Write("Enter marks for subjects :");
+                students[i].SubjectMarks[j] = Convert.ToInt32(Console.ReadLine());
+
+            }
+
+
+        }
+
+        Console.WriteLine("Student obj details are given below :");
+
+        foreach (Student s in students)
+        {
+            Console.WriteLine(s.Name);// provided the value using get property
+            Console.WriteLine(s.Age);
+
+            foreach (int marks in s.SubjectMarks)
+            {
+                Console.WriteLine("Students Marks are : " + marks);
+                    }
+
+        }
+    }
+
+}
+    
+
+
+using System;
+
+class Employee
+{
+
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public static int Count=0;
+    public Employee()
+    {
+        Count++;
+         Console.WriteLine("The value of count is : " + Count);
+        Name = "niti";
+        Age = 34;
+    }
+    public Employee(string name, int age)
+    {
+
+        Name = name;
+        Age = age;
+
+    }
+
+
+   // static constructor will run only once , not as  per the object 
+    // static Employee()
+    // {
+
+    //     Count++;
+    //     Console.WriteLine("The value of count is : " + Count);
+    // }
+
+    public Employee(string name)
+    {
+
+        Name = name;
+
+
+    }
+
+    public void Display()
+    {
+
+        Console.WriteLine("Name : " + Name + "Age : " + Age);
+    }
+    
+    }
+
+class Program
+{
+
+
+    static void Main()
+    {
+
+        Employee e1 = new Employee();
+        Employee e2 = new Employee();
+        Employee e3 = new Employee();
+
+        e1.Display();
+        e2.Display();
+        e3.Display();
+    }
+}
+
+Codeshare logo
+ ShareSign UpLog In
+Disconnected. Click here to reconnect.
+1
+using System;
+2
+​
+3
+class JaggedArrayExample
+4
+{
+5
+    static void Main()
+6
+    {
+7
+        string[] studentNames = new string[5];
+8
+        string[][] subjects = new string[5][];
+9
+​
+10
+        for (int i = 0; i < 5; i++)
+11
+        {
+12
+            Console.Write($"Enter name of student {i + 1}: ");
+13
+            studentNames[i] = Console.ReadLine();
+14
+​
+15
+            Console.Write($"How many subjects for {studentNames[i]}? ");
+16
+            int subjectCount = Convert.ToInt32(Console.ReadLine());
+17
+​
+18
+            subjects[i] = new string[subjectCount];
+19
+​
+20
+            for (int j = 0; j < subjectCount; j++)
+21
+            {
+22
+                Console.Write($"Enter subject {j + 1} for {studentNames[i]}: ");
+23
+                subjects[i][j] = Console.ReadLine();
+24
+            }
+25
+​
+26
+            Console.WriteLine();
+27
+        }
+28
+​
+29
+        // Displaying the data
+30
+        Console.WriteLine("\n--- Student and Subjects ---");
+31
+        for (int i = 0; i < 5; i++)
+32
+        {
+33
+            Console.WriteLine($"Student: {studentNames[i]}");
+34
+            Console.WriteLine("Subjects:");
+35
+            foreach (string subject in subjects[i])
+36
+            {
+37
+                Console.WriteLine($"- {subject}");
+38
+            }
+39
+            Console.WriteLine();
+40
+        }
+41
+    }
+42
+}
+
+
+
+Day4
+
+class StringPrograms
+{
+    static void Main()
+    {
+
+        string text = "CSharp# Language$ invented_in 2002!";
+
+        int length = text.Length; //15
+        Console.WriteLine("The Length of a string : " + length);
+        string subString = text.Substring(7, 8);
+        Console.WriteLine("The text from a string : " + subString);
+        Console.WriteLine(text.IndexOf("harp"));
+        Console.WriteLine(text.ToUpper());
+        string newString = text.Replace("CSharp", "Java");
+        Console.WriteLine(newString);
+
+        String replaced = text.Replace(" ", "");
+        Console.WriteLine("Without space : " + replaced.Length);
+
+        int pos = text.IndexOf("Language");
+        string newText = text.Substring(pos, 8);
+        Console.WriteLine("New Text Value " + newText.ToUpper());
+
+        //Count all the blank space and count all the special character
+
+        string data = "CSharp,Language";
+        String[] lang = data.Split(',');
+        foreach (string valuess in lang)
+        {
+            Console.WriteLine(valuess);
+        }
+	int spaceCount = 0;
+	int specialCharCount = 0;
+
+	foreach (char c in text)
+	{
+    	if (char.IsWhiteSpace(c))
+        spaceCount++;
+    	else if (!char.IsLetterOrDigit(c))
+        specialCharCount++;
+	}
+
+	Console.WriteLine("Total blank spaces: " + spaceCount);
+	Console.WriteLine("Total special characters: " + specialCharCount);
+	string[] words = sentence.Split(new char[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+	int wordCount = words.Length;
+
+	Console.WriteLine("Total number of words: " + wordCount);
+    }
+}
+
+Day5
+
+using System;
+
+//The ability to take many forms 
+/*method overloading -- where all methods in a class are with the same name
+but the arguments will differ (either datatype will be different or the sequence of arguments are different or order of arguments are different)
+static binding -- when compiler will identify which method
+needs to be called at compile time*/
+
+/*method overriding -- where some methods in base class and in inherited or child class are with the same name
+run time  binding -- when compiler will identify which method
+needs to be called at run time when the object will be created*/
+
+namespace oops.poly
+{
+
+    class InfoPrinter
+    {
+        public int Pages;
+        InfoPrinter()
+        {
+
+            Console.WriteLine("Constructor Called");
+        }
+
+        InfoPrinter(int Pagess)
+        {
+            this.Pages = Pagess;
+            this.Pages = this.Pages + 1;
+            Console.WriteLine("Total Pages Printed :" + this.Pages);
+        }
+        public void Print(string name, int empId)
+        {
+            Console.WriteLine("Name :" + name + " EmpId :" + empId);
+        }
+
+        public void Print(int empId, string name)
+        {
+            Console.WriteLine("Name :" + name + " EmpId :" + empId);
+        }
+
+        static void Main()
+        {
+            InfoPrinter InfPrinter = new InfoPrinter();
+            InfPrinter.Print("Niti", 1001); // At compile time 
+            InfPrinter.Print(1002, "Sakshi");
+            InfoPrinter InfPrinter1 = new InfoPrinter(23);
+            InfoPrinter InfPrinter2 = new InfoPrinter(12);
+
+
+        }
+
+    }
+}
+Types of Indexes in SQL – With Examples
+Indexes help databases retrieve data efficiently by avoiding full table scans. Below are common types of indexes with use cases and SQL examples.
+
+1. Single-Column Index
+Definition: An index created on a single column.
+sql
+CopyEdit
+CREATE INDEX idx_employee_name ON Employees(Name);
+Use:
+Speeds up:
+sql
+CopyEdit
+SELECT * FROM Employees WHERE Name = 'Alice';
+
+2. Composite Index (Multi-Column Index)
+Definition: An index on two or more columns.
+sql
+CopyEdit
+CREATE INDEX idx_emp_dept ON Employees(DepartmentID, Name);
+Use:
+Optimized for:
+sql
+CopyEdit
+SELECT * FROM Employees WHERE DepartmentID = 2 AND Name = 'Bob';
+⚠️ Order matters: It will not work efficiently for just WHERE Name = 'Bob'.
+
+3. Unique Index
+Definition: Ensures values in a column (or combination) are unique.
+sql
+CopyEdit
+CREATE UNIQUE INDEX idx_email_unique ON Employees(Email);
+Use: Prevents duplicate emails.
+4. Primary Key Index
+Definition: Automatically created on a PRIMARY KEY.
+sql
+CopyEdit
+CREATE TABLE Departments (
+    DeptID INT PRIMARY KEY,
+    Name VARCHAR(100)
+);
+Use: Enforces uniqueness and improves row lookups.
+
+5. Clustered Index
+Definition: Sorts and stores the table rows based on the key.
+Only one per table.
+sql
+CopyEdit
+CREATE CLUSTERED INDEX idx_salary ON Employees(Salary);
+Use: Efficient for range queries like:
+sql
+CopyEdit
+SELECT * FROM Employees WHERE Salary BETWEEN 50000 AND 100000;
+
+6. Non-Clustered Index
+Definition: Stores a pointer to the actual data row.
+You can have many non-clustered indexes per table.
+sql
+CopyEdit
+CREATE NONCLUSTERED INDEX idx_jobtitle ON Employees(JobTitle);
+Use: Optimized lookups for specific columns.
+
+7. Full-Text Index
+Definition: Enables searching within text fields.
+sql
+CopyEdit
+CREATE FULLTEXT INDEX idx_description ON Products(Description);
+Use:
+sql
+CopyEdit
+SELECT * FROM Products WHERE MATCH(Description) AGAINST ('laptop');
+
+8. Filtered Index (SQL Server only)
+Definition: Indexes only rows that meet a condition.
+sql
+CopyEdit
+CREATE INDEX idx_active_employees ON Employees(Status)
+WHERE Status = 'Active';
+Use: Faster access to filtered datasets.
+
+9. Bitmap Index (Oracle)
+Definition: Efficient for columns with few distinct values (e.g., Gender).
+sql
+CopyEdit
+-- Oracle syntax
+CREATE BITMAP INDEX idx_gender ON Employees(Gender);
+Use: Low-cardinality values (e.g., Gender, Yes/No flags).
+ Summary Table
+Index TypeUse CaseExample Column(s)Single-ColumnBasic searchNameCompositeCombined filtersDepartmentID, NameUniqueEnforce uniquenessEmailPrimary KeyRow identificationIDClusteredRange queries / sortingSalaryNon-ClusteredGeneral purpose 
+
+
+
+MSSQL Stored Procedure Examples
+
+✅ 1. Simple Procedure (No Parameters)
+Example: Get all employees
+sql
+CopyEdit
+CREATE PROCEDURE GetAllEmployees
+AS
+BEGIN
+    SELECT * FROM Employees;
+END;
+Execution:
+sql
+CopyEdit
+EXEC GetAllEmployees;
+
+✅ 2. Procedure with Input Parameter
+Example: Get employees by department
+sql
+CopyEdit
+CREATE PROCEDURE GetEmployeesByDepartment
+    @DepartmentID INT
+AS
+BEGIN
+    SELECT * FROM Employees
+    WHERE DepartmentID = @DepartmentID;
+END;
+Execution:
+sql
+CopyEdit
+EXEC GetEmployeesByDepartment @DepartmentID = 2;
+
+✅ 3. Procedure with Multiple Input Parameters
+Example: Filter employees by department and minimum salary
+sql
+CopyEdit
+CREATE PROCEDURE GetEmployeesByDeptAndSalary
+    @DepartmentID INT,
+    @MinSalary MONEY
+AS
+BEGIN
+    SELECT * FROM Employees
+    WHERE DepartmentID = @DepartmentID
+      AND Salary >= @MinSalary;
+END;
+Execution:
+sql
+CopyEdit
+EXEC GetEmployeesByDeptAndSalary @DepartmentID = 1, @MinSalary = 50000;
+ 4. Procedure with Output Parameter
+Example: Get the total count of employees in a department
+sql
+CopyEdit
+CREATE PROCEDURE GetEmployeeCount
+    @DepartmentID INT,
+    @EmployeeCount INT OUTPUT
+AS
+BEGIN
+    SELECT @EmployeeCount = COUNT(*)
+    FROM Employees
+    WHERE DepartmentID = @DepartmentID;
+END;
+Execution and Reading Output:
+sql
+CopyEdit
+DECLARE @Count INT;
+EXEC GetEmployeeCount @DepartmentID = 3, @EmployeeCount = @Count OUTPUT;
+PRINT 'Total Employees: ' + CAST(@Count AS VARCHAR);
+
+✅ 5. Procedure with Default Parameter Value
+Example: Get employees by department, defaulting to department 1
+sql
+CopyEdit
+CREATE PROCEDURE GetEmployeesWithDefaultDept
+    @DepartmentID INT = 1
+AS
+BEGIN
+    SELECT * FROM Employees
+    WHERE DepartmentID = @DepartmentID;
+END;
+Execution:
+sql
+CopyEdit
+-- Using default (department 1)
+EXEC GetEmployeesWithDefaultDept;
+
+-- Specifying a different department
+EXEC GetEmployeesWithDefaultDept @DepartmentID = 2;
+6. Procedure with Transaction and Error Handling
+Example: Transfer salary from one employee to another
+sql
+CopyEdit
+CREATE PROCEDURE TransferSalary
+    @FromEmployeeID INT,
+    @ToEmployeeID INT,
+    @Amount MONEY
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        UPDATE Employees
+        SET Salary = Salary - @Amount
+        WHERE EmployeeID = @FromEmployeeID;
+
+        UPDATE Employees
+        SET Salary = Salary + @Amount
+        WHERE EmployeeID = @ToEmployeeID;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        PRINT 'Error occurred: ' + ERROR_MESSAGE();
+    END CATCH;
+END;
+Execution:
+sql
+CopyEdit
+EXEC TransferSalary @FromEmployeeID = 1, @ToEmployeeID = 2, @Amount = 500;
+
+✅ 7. Procedure Returning Result Sets and Messages
+Example: Return employee list and print a message
+sql
+CopyEdit
+CREATE PROCEDURE ShowEmployeesWithMessage
+AS
+BEGIN
+    SELECT * FROM Employees;
+    PRINT 'Employee list retrieved successfully.';
+END;
+Execution:
+sql
+CopyEdit
+EXEC ShowEmployeesWithMessage;
+✅ 8. Dropping a Stored Procedure
+Syntax:
+sql
+CopyEdit
+DROP PROCEDURE ProcedureName;
+Example:
+sql
+CopyEdit
+DROP PROCEDURE GetAllEmployees;
+
+
+
+
+const express = require('express');
+const fs = require('fs/promises');
+const cors = require('cors');
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+const filePath = './data.txt';
+// const txt = "This is a sample text file.\n";
+app.post('/write', async (req, res) => {
+  try {
+    const { content } = req.body;
+    await fs.writeFile(filePath, content);
+    res.send({ message: 'File written successfully' });
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
+app.get('/read', async (req, res) => {
+  try {
+    const data = await fs.readFile(filePath, 'utf8');
+    res.send({ content: data });
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
+app.post('/rename', async (req, res) => {
+  try {
+    const { newName } = req.body;
+    await fs.rename(filePath, newName);
+    res.send({ message: 'File renamed successfully' });
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
+app.delete('/delete', async (req, res) => {
+  try {
+    await fs.unlink(filePath);
+    res.send({ message: 'File deleted successfully' });
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
+app.listen(5000, () => console.log('Server running on http://localhost:5000'));
+
+
+
+ TypeScript JSX â€“ MCQs (1â€“40)
+
+ 1. Which keyword is used to define a variable that can be hoisted?
+
+A. const
+B. let
+ C. var
+D. function
+
+
+
+ 2. In TypeScript, what is the scope of a variable declared with `var`?
+
+A. Block
+ B. Function
+C. Global only
+D. Class
+
+
+
+ 3. What will be the output?
+
+```ts
+console.log(a);
+var a = 10;
+```
+
+A. Error
+ B. undefined
+C. 10
+D. null
+
+
+
+ 4. Which of the following allows defining a method inside a class?
+
+A. interface
+B. map
+ C. method
+D. enum
+
+
+
+ 5. Which method is used to iterate over Map elements?
+
+A. forEach
+ B. map.forEach
+C. map.iterator
+D. each
+
+
+
+ 6. Which of the following can be used to strongly type objects?
+
+A. Class
+ B. Interface
+C. Enum
+D. Any
+
+
+
+ 7. Which symbol is used to declare a decorator?
+
+A. \$
+ B. @
+C. #
+D. \~
+
+
+
+ 8. What does `any` type allow in TypeScript?
+
+ A. Any kind of value without type checking
+B. Strict null checking
+C. Only primitive values
+D. Only object values
+
+
+
+ 9. What does an enum provide in TypeScript?
+
+A. Encapsulation
+ B. Named constants
+C. Runtime polymorphism
+D. Dynamic typing
+
+
+
+ 10. What is the output?
+
+```ts
+let arr: [number, string] = [1, "Hello"];
+console.log(arr[0]);
+```
+
+ A. 1
+B. Hello
+C. undefined
+D. Error
+
+
+
+ 11. TypeScript interfaces are used for:
+
+ A. Defining contracts for classes or objects
+B. Controlling routing
+C. HTTP requests
+D. Variable scoping
+
+
+
+ 12. Which of the following iterates over the values of an array?
+
+A. for..in
+ B. for..of
+C. forEach index
+D. map
+
+
+
+ 13. Which function can be used to define metadata in a decorator?
+
+ A. Reflect.metadata()
+B. Meta.define()
+C. Symbol.metadata
+D. Object.meta
+
+
+
+ 14. How do you define a tuple with a number and a string in TypeScript?
+
+ A. \[number, string]
+B. (number, string)
+C. {number: string}
+D. \[string, number]
+
+
+
+ 15. Interfaces support which features?
+
+ A. Optional properties, Readonly, Inheritance
+B. Only variables
+C. No inheritance
+D. Only methods
+
+
+
+ 16. Which of these is a feature of `map` object?
+
+A. Indexed access
+ B. Key-value pairs with any type of keys
+C. Only string keys
+D. Immutable
+
+
+
+ 17. The correct syntax to declare an enumeration:
+
+ A. `enum Colors {Red, Green, Blue}`
+B. `colors = [Red, Green, Blue]`
+C. `enum = Colors[Red]`
+D. `enum: Colors = Red, Green`
+
+
+
+ 18. Type annotations in TypeScript help with:
+
+ A. Compile-time type checking
+B. Code minification
+C. DOM rendering
+D. CSS parsing
+
+
+
+ 19. Tuple type allows:
+
+A. Arrays with variable length
+ B. Arrays with fixed length and types
+C. Key-value pairs
+D. JSON structures
+
+
+
+ 20. A decorator can be applied to:
+
+ A. Class, Method, Property, Parameter
+B. Only functions
+C. Only variables
+D. Only methods
+
+
+
+ 21. `let` and `const` are block scoped, while `var` is:
+
+ A. Function scoped
+B. Block scoped
+C. Class scoped
+D. Object scoped
+
+
+
+ 22. Which TypeScript feature ensures type safety?
+
+A. `var`
+B. Arrays
+ C. Interfaces
+D. for loop
+
+
+
+ 23. Which TypeScript type can store any value and bypass type checking?
+
+A. string
+ B. any
+C. object
+D. void
+
+
+
+ 24. In a class, the constructor is used for:
+
+ A. Initializing class members
+B. Creating interfaces
+C. Declaring tuples
+D. Assigning enums
+
+
+
+ 25. TypeScript supports which types of inheritance?
+
+A. Only single
+ B. Single and multiple via interfaces
+C. Only mixins
+D. No inheritance
+
+
+
+ 26. What is the correct way to declare a class in TypeScript?
+
+ A. `class Person { constructor() {} }`
+B. `interface Person {}`
+C. `function class() {}`
+D. `class = Person()`
+
+
+
+ 27. The `.values()` method in a `Map` returns:
+
+A. Key-value
+ B. Values only
+C. Keys only
+D. Length
+
+
+
+ 28. TypeScript iterators are mainly used with:
+
+A. Sets only
+B. Objects
+ C. Arrays, Maps, Sets
+D. Enums
+
+
+
+ 29. A tuple defined as `[string, number]` will throw an error when:
+
+A. Values are assigned in the same order
+ B. Values are assigned as \[10, "test"]
+C. It's empty
+D. It's longer than 2
+
+
+
+ 30. The correct way to define a function returning `void`:
+
+ A. `function greet(): void {}`
+B. `function greet() = void {}`
+C. `void greet() {}`
+D. `function greet: void()`
+
+
+
+ 31. Which is NOT a valid use of a decorator?
+
+A. @Component
+B. @Injectable
+ C. @Loop
+D. @Input
+
+
+
+ 32. A class must implement all members of:
+
+ A. The interface it implements
+B. The tuple it returns
+C. Any enum
+D. A variable
+
+
+
+ 33. Iterators in TypeScript must implement:
+
+ A. next() method
+B. push() method
+C. index() method
+D. done() method only
+
+
+
+ 34. A feature of using Maps over Objects:
+
+ A. Keys can be of any type
+B. Keys must be strings
+C. No iterable methods
+D. Can't be iterated
+
+
+
+ 35. Which of these declarations is incorrect?
+
+A. let a: any
+B. let b: string
+C. let c: number\[]
+ D. let d = \[number, string]
+
+
+
+ 36. Which concept helps in reusability of code in TypeScript?
+
+A. Tuple
+B. var
+ C. Interface
+D. enum
+
+
+
+ 37. Type annotations are used:
+
+ A. To specify variable types explicitly
+B. For HTML rendering
+C. Only in classes
+D. For generating IDs
+
+
+
+ 38. Output of the following:
+
+```ts
+const a = [1, 2];
+a.push(3);
+console.log(a.length);
+```
+
+A. Error
+ B. 3
+C. 2
+D. undefined
+
+
+
+ 39. Decorators execute:
+
+A. After class creation
+ B. At runtime, before instantiation
+C. After constructor
+D. After main()
+
+
+
+ 40. `typeof` operator in TypeScript returns:
+
+ A. A string representing the type
+B. A number
+C. An enum
+D. A function
+
+
+Great! Here's the next batch:
+
+
+
+ ðŸ”§ Working with NPM & Node.js â€“ MCQs (41â€“80)
+
+
+
+ 41. What does `npm` stand for?
+
+A. Node Package Manager
+ B. Node Project Manager
+C. Node Process Manager
+D. Node Protocol Manager
+
+
+
+ 42. What is the command to initialize a new npm project?
+
+A. npm start
+ B. npm init
+C. npm create
+D. npm generate
+
+
+
+ 43. What file is generated by running `npm init`?
+
+A. config.json
+ B. package.json
+C. index.js
+D. npm.json
+
+
+
+ 44. What does `package-lock.json` do?
+
+A. Stores all dependencies
+ B. Records exact version of installed packages
+C. Locks the package.json file
+D. Prevents updates
+
+
+
+ 45. Which command installs all packages from `package.json`?
+
+A. npm update
+B. npm build
+ C. npm install
+D. npm create
+
+
+
+ 46. How do you uninstall a package?
+
+A. npm remove
+B. npm delete
+ C. npm uninstall
+D. npm reset
+
+
+
+ 47. To update a package to the latest version:
+
+ A. npm update \[package-name]
+B. npm upgrade
+C. npm latest
+D. npm push
+
+
+
+ 48. What is a dependency in `package.json`?
+
+A. Node version info
+ B. Libraries required to run the app
+C. Compilation files
+D. Test cases
+
+
+
+ 49. Which key in `package.json` defines the main file of the app?
+
+ A. "main"
+B. "start"
+C. "root"
+D. "index"
+
+
+
+ 50. What is the correct command to install a dev dependency?
+
+ A. npm install package-name --save-dev
+B. npm dev package-name
+C. npm install --dev package-name
+D. npm add-dev package-name
+
+
+
+ 51. Which of the following is a built-in Node.js module?
+
+ A. fs
+B. lodash
+C. express
+D. chalk
+
+
+
+ 52. What does the `fs` module handle?
+
+A. Database
+B. HTTP Requests
+ C. File System Operations
+D. Routing
+
+
+
+ 53. What does `http` module in Node.js help with?
+
+ A. Creating servers and handling HTTP requests
+B. File storage
+C. Encryption
+D. Data compression
+
+
+
+ 54. What module is used for creating secure servers in Node.js?
+
+A. secure
+ B. https
+C. tls
+D. ssl
+
+
+
+ 55. Which built-in module helps with working on file and directory paths?
+
+A. fs
+ B. path
+C. url
+D. routes
+
+
+
+ 56. `EventEmitter` is part of which Node module?
+
+A. events-stream
+ B. events
+C. emitter-core
+D. node-core
+
+
+
+ 57. Which method emits an event in Node.js?
+
+ A. emitter.emit()
+B. emitter.send()
+C. event.run()
+D. signal.emit()
+
+
+
+ 58. What does the `require()` function do in Node.js?
+
+A. Delete a module
+B. Convert JSON
+ C. Import a module
+D. Export a module
+
+
+
+ 59. Which is the correct way to import the `fs` module?
+
+ A. const fs = require('fs');
+B. import 'fs';
+C. get fs from 'fs';
+D. fs.import();
+
+
+
+ 60. `npm install` without any package installs:
+
+ A. All dependencies in package.json
+B. Only global packages
+C. Dev dependencies only
+D. Production packages only
+
+
+
+ 61. Which file stores exact dependency versions installed?
+
+A. package.json
+ B. package-lock.json
+C. npm.json
+D. lock.json
+
+
+
+ 62. What is required to create a minimal Node.js app?
+
+A. index.html
+ B. index.js + package.json
+C. app.css
+D. node.ts
+
+
+
+ 63. What does this code do?
+
+```js
+const fs = require("fs");
+fs.writeFileSync("hello.txt", "Hello Node");
+```
+
+A. Reads file
+ B. Creates file with content
+C. Deletes file
+D. Downloads file
+
+
+
+ 64. What kind of programming model does Node.js use?
+
+A. Blocking
+ B. Non-blocking, event-driven
+C. Threaded
+D. Linear
+
+
+
+ 65. What is a callback in Node.js?
+
+ A. A function passed to another function to be executed later
+B. A return value
+C. A method chain
+D. A node
+
+
+
+ 66. What is a Promise?
+
+A. An error handler
+ B. An object representing the future completion/failure of an operation
+C. A stream
+D. A timer
+
+
+
+ 67. What is the purpose of `async/await` in Node.js?
+
+A. Improve routing
+ B. Handle asynchronous code in a synchronous way
+C. Create server
+D. Load packages
+
+
+
+ 68. Which statement is correct?
+
+ A. Promises are cleaner than callbacks
+B. Callbacks are more modern
+C. Promises are slower
+D. Callbacks never cause nesting
+
+
+
+ 69. `await` can only be used inside:
+
+A. function()
+B. setTimeout
+ C. async function
+D. require
+
+
+
+ 70. How do you define an async function?
+
+A. function async() {}
+ B. async function name() {}
+C. async = function() {}
+D. define async()
+
+
+
+ 71. Which of the following is a benefit of Express.js?
+
+A. File system support
+ B. Simple API for routing and middleware
+C. Built-in templating
+D. No need for Node
+
+
+
+ 72. How to import Express in a Node.js project?
+
+ A. const express = require('express');
+B. import 'express';
+C. get express from 'express';
+D. express.load();
+
+
+
+ 73. What is middleware in Express.js?
+
+ A. A function that handles request/response objects
+B. A UI component
+C. A database wrapper
+D. A testing library
+
+
+
+ 74. How to define a GET route in Express?
+
+```js
+app.get("/", (req, res) => res.send("Hi"));
+```
+
+A. Correct
+ B. Correct
+C. Wrong
+D. Only for POST
+
+
+
+ 75. What does this route handle?
+
+```js
+app.post("/submit", handler);
+```
+
+ A. POST requests to /submit
+B. GET requests to /submit
+C. All requests to /submit
+D. DELETE requests
+
+
+
+ 76. How do you handle dynamic routes in Express?
+
+ A. app.get('/user/\:id')
+B. app.route('/user\@id')
+C. app.any('/user')
+D. app.fetch('/user?id=')
+
+
+
+ 77. Middleware functions must call:
+
+A. done()
+ B. next()
+C. complete()
+D. forward()
+
+
+
+ 78. Which port is commonly used to run Express apps?
+
+A. 80
+B. 21
+ C. 3000
+D. 50000
+
+
+
+ 79. Express routes must be defined on:
+
+A. app.route()
+ B. app.METHOD(path, handler)
+C. route(app)
+D. route.set()
+
+
+
+ 80. To parse JSON request bodies in Express:
+
+ A. app.use(express.json())
+B. app.use(json())
+C. app.set('json')
+D. express.JSON()
+
+
+Excellent! Here's the final batch of MCQs (81â€“120) covering:
+
+* Advanced Express.js Routing
+* Middleware
+* Asynchronous Patterns
+* Node.js Core Modules
+* Real-world Practices
+
+
+
+ 81. What will this code do?
+
+```js
+app.use((req, res, next) => {
+  console.log("Middleware");
+  next();
+});
+```
+
+ A. Logs every request and moves to the next middleware
+B. Sends a response
+C. Blocks all requests
+D. Triggers an error
+
+
+
+ 82. What happens if `next()` is not called in Express middleware?
+
+A. Response is automatically sent
+ B. Request hangs without response
+C. App crashes
+D. It skips other routes
+
+
+
+ 83. How to create an Express router?
+
+ A. const router = express.Router();
+B. const route = express.create();
+C. express.route();
+D. app.router();
+
+
+
+ 84. What is the purpose of `express.Router()`?
+
+A. Serve static files
+ B. Create modular route handlers
+C. Read POST data
+D. Handle events
+
+
+
+ 85. Which HTTP method is used for updating a resource?
+
+A. GET
+B. DELETE
+ C. PUT
+D. FETCH
+
+
+
+ 86. What does this route match?
+
+```js
+app.get('/user/:id', handler);
+```
+
+A. /user/
+ B. /user/123
+C. /user?id=123
+D. /user:123
+
+
+
+ 87. Route parameters are accessed using:
+
+ A. req.params
+B. req.query
+C. req.body
+D. req.header
+
+
+
+ 88. How do you handle form submissions in Express?
+
+A. req.query
+ B. req.body (with body-parser or express.json())
+C. req.form
+D. req.send
+
+
+
+ 89. When should `express.urlencoded()` be used?
+
+ A. For parsing form data (application/x-www-form-urlencoded)
+B. For JSON APIs
+C. For static files
+D. For database queries
+
+
+
+ 90. A chained route definition for `/product` might look like:
+
+ A. app.route('/product').get().post();
+B. app.get('/product').post();
+C. app.product('/product')
+D. app.route('/product').get().put();
+
+
+
+ 91. The `error-handling middleware` in Express must have:
+
+A. 2 arguments
+B. 3 arguments
+ C. 4 arguments (err, req, res, next)
+D. 1 argument
+
+
+
+ 92. What status code represents "Created"?
+
+A. 200
+B. 204
+ C. 201
+D. 500
+
+
+
+ 93. What does the `path` module in Node.js help with?
+
+A. Working with databases
+ B. Resolving and formatting file paths
+C. Creating servers
+D. Handling routes
+
+
+
+ 94. Node.js is single-threaded but:
+
+ A. Uses an event loop for asynchronous tasks
+B. Uses multiple CPUs
+C. Uses WebAssembly
+D. Uses async threads
+
+
+
+ 95. What is the default export method in Node.js?
+
+ A. module.exports
+B. export default
+C. require()
+D. module.export()
+
+
+
+ 96. What keyword in package.json marks scripts for execution?
+
+ A. "scripts"
+B. "run"
+C. "cmd"
+D. "execute"
+
+
+
+ 97. How do you run a script named `start` from package.json?
+
+A. npm run start.js
+ B. npm start
+C. node start
+D. npm execute start
+
+
+
+ 98. In a package.json, `dependencies` section is used for:
+
+ A. Runtime packages required to run the app
+B. Testing libraries
+C. Build tools
+D. Linting tools
+
+
+
+ 99. Which lifecycle method is called before `npm install` begins?
+
+A. preinstall
+ B. preinstall
+C. install
+D. before
+
+
+
+ 100. Which Node.js function reads a file asynchronously?
+
+A. fs.readFileSync
+ B. fs.readFile
+C. readFile
+D. fs.read
+
+
+
+ 101. What will this log?
+
+```js
+console.log(process.cwd());
+```
+
+ A. Current working directory
+B. Node version
+C. Root path
+D. File path
+
+
+
+ 102. What does `__dirname` return?
+
+A. The filename
+ B. Directory path of current module
+C. Node home path
+D. Relative root
+
+
+
+ 103. What built-in module handles compression?
+
+A. zip
+ B. zlib
+C. compress
+D. stream
+
+
+
+ 104. Which of the following is used to catch unhandled exceptions in Node.js?
+
+ A. process.on('uncaughtException', fn)
+B. catch()
+C. node.catch()
+D. app.onError()
+
+
+
+ 105. Which module is used for streaming operations in Node?
+
+ A. stream
+B. flow
+C. pipe
+D. buffer
+
+
+
+ 106. What does `res.sendStatus(404)` do in Express?
+
+A. Send 404 page
+ B. Send status code and end response
+C. Send HTML file
+D. Redirect
+
+
+
+ 107. What is the difference between `res.send()` and `res.json()`?
+
+A. None
+ B. json() stringifies the object automatically
+C. send() parses JSON
+D. send() returns XML
+
+
+
+ 108. To serve static files in Express:
+
+ A. app.use(express.static('public'))
+B. app.get('/static')
+C. app.serveFiles()
+D. express.serve()
+
+
+
+ 109. What does `res.redirect()` do?
+
+A. Sends JSON
+ B. Redirects the client to a new URL
+C. Updates headers
+D. Ends request
+
+
+
+ 110. What is the result of:
+
+```js
+setImmediate(() => console.log("Immediate"));
+process.nextTick(() => console.log("Next Tick"));
+```
+
+ A. Next Tick logs before Immediate
+B. Immediate logs first
+C. They run in parallel
+D. Error
+
+
+
+ 111. The order of execution:
+
+A. setTimeout < nextTick < setImmediate
+ B. process.nextTick < Promise < setTimeout < setImmediate
+C. Promise < nextTick
+D. nextTick < setTimeout < Promise
+
+
+
+ 112. What tool tracks exact changes in node modules?
+
+ A. package-lock.json
+B. version.json
+C. npm-cache.json
+D. deps.json
+
+
+
+ 113. A key benefit of using Express over raw Node.js:
+
+ A. Simplified routing and middleware system
+B. Multi-threading
+C. File uploads
+D. SSL by default
+
+
+
+ 114. What does `res.status(200).json(data)` do?
+
+A. Sends plain HTML
+ B. Sends HTTP status 200 with JSON data
+C. Creates a POST request
+D. Logs data
+
+
+
+ 115. How can you restrict access to certain routes in Express?
+
+A. Using query params
+ B. Using middleware
+C. Using templates
+D. Using static folders
+
+
+
+ 116. Node.js uses what type of I/O model?
+
+A. Blocking
+ B. Non-blocking, event-driven
+C. Stream-based
+D. Time-based
+
+
+
+ 117. What function handles error in Express middleware?
+
+ A. next(err)
+B. throw error
+C. return error
+D. send(error)
+
+
+
+ 118. What keyword is used to export a function in CommonJS?
+
+ A. module.exports = fn
+B. export default
+C. define()
+D. expose()
+
+
+
+ 119. What is the purpose of `.env` in a Node.js app?
+
+ A. Storing environment variables securely
+B. Routing rules
+C. JavaScript versioning
+D. Package settings
+
+
+
+ 120. What is a recommended way to manage environment variables?
+
+ A. dotenv package
+B. fs module
+C. process.js
+D. envjs
+
+
+
+TypeScript JSX – MCQs (1–40)
+C. var
+
+B. Function
+
+B. undefined
+
+C. method
+
+A. forEach
+
+B. Interface
+
+B. @
+
+A. Any kind of value without type checking
+
+B. Named constants
+
+A. 1
+
+A. Defining contracts for classes or objects
+
+B. for..of
+
+A. Reflect.metadata()
+
+A. [number, string]
+
+A. Optional properties, Readonly, Inheritance
+
+B. Key-value pairs with any type of keys
+
+A. enum Colors {Red, Green, Blue}
+
+A. Compile-time type checking
+
+B. Arrays with fixed length and types
+
+A. Class, Method, Property, Parameter
+
+A. Function scoped
+
+C. Interfaces
+
+B. any
+
+A. Initializing class members
+
+B. Single and multiple via interfaces
+
+A. class Person { constructor() {} }
+
+B. Values only
+
+C. Arrays, Maps, Sets
+
+B. Values are assigned as [10, "test"]
+
+A. function greet(): void {}
+
+C. @Loop
+
+A. The interface it implements
+
+A. next() method
+
+A. Keys can be of any type
+
+D. let d = [number, string]
+
+C. Interface
+
+A. To specify variable types explicitly
+
+B. 3
+
+B. At runtime, before instantiation
+
+A. A string representing the type
+
+🔹 Working with NPM & Node.js – MCQs (41–80)
+A. Node Package Manager
+
+B. npm init
+
+B. package.json
+
+B. Records exact version of installed packages
+
+C. npm install
+
+C. npm uninstall
+
+A. npm update [package-name]
+
+B. Libraries required to run the app
+
+A. "main"
+
+A. npm install package-name --save-dev
+
+A. fs
+
+C. File System Operations
+
+A. Creating servers and handling HTTP requests
+
+B. https
+
+B. path
+
+B. events
+
+A. emitter.emit()
+
+C. Import a module
+
+A. const fs = require('fs');
+
+A. All dependencies in package.json
+
+B. package-lock.json
+
+B. index.js + package.json
+
+B. Creates file with content
+
+B. Non-blocking, event-driven
+
+A. A function passed to another function to be executed later
+
+B. An object representing the future completion/failure of an operation
+
+B. Handle asynchronous code in a synchronous way
+
+A. Promises are cleaner than callbacks
+
+C. async function
+
+B. async function name() {}
+
+B. Simple API for routing and middleware
+
+A. const express = require('express');
+
+A. A function that handles request/response objects
+
+A/B. Correct (both are same)
+
+A. POST requests to /submit
+
+A. app.get('/user/:id')
+
+B. next()
+
+C. 3000
+
+B. app.METHOD(path, handler)
+
+A. app.use(express.json())
+
+🔹 Advanced Express, Node Core Modules, Async – MCQs (81–120)
+A. Logs every request and moves to the next middleware
+
+B. Request hangs without response
+
+A. const router = express.Router();
+
+B. Create modular route handlers
+
+C. PUT
+
+B. /user/123
+
+A. req.params
+
+B. req.body (with body-parser or express.json())
+
+A. For parsing form data (application/x-www-form-urlencoded)
+
+A. app.route('/product').get().post();
+
+C. 4 arguments (err, req, res, next)
+
+C. 201
+
+B. Resolving and formatting file paths
+
+A. Uses an event loop for asynchronous tasks
+
+A. module.exports
+
+A. "scripts"
+
+B. npm start
+
+A. Runtime packages required to run the app
+
+A/B. preinstall
+
+B. fs.readFile
+
+A. Current working directory
+
+B. Directory path of current module
+
+B. zlib
+
+A. process.on('uncaughtException', fn)
+
+A. stream
+
+B. Send status code and end response
+
+B. json() stringifies the object automatically
+
+A. app.use(express.static('public'))
+
+B. Redirects the client to a new URL
+
+A. Next Tick logs before Immediate
+
+B. process.nextTick < Promise < setTimeout < setImmediate
+
+A. package-lock.json
+
+A. Simplified routing and middleware system
+
+B. Sends HTTP status 200 with JSON data
+
+B. Using middleware
+
+B. Non-blocking, event-driven
+
+A. next(err)
+
+A. module.exports = fn
+
+A. Storing environment variables securely
+
+A. dotenv package
+
+
+
+nga.coach.ext@wipro.com and nga.skilling@wipro.com
+
+https://github.com/netsrishtiadmin/angulartrainingwipro/tree/main/src
+
+
+ 1. `ngOnChanges(changes: SimpleChanges)`
+
+ When it runs: Called before `ngOnInit` and whenever input-bound properties change.
+ Use case: Respond to changes in `@Input()` values from the parent component.
+
+
+
+ 2. `ngOnInit()`
+
+ When it runs: Once, after the first `ngOnChanges`.
+ Use case: Initialization logic, fetching data, setting up the component state.
+
+
+
+ 3. `ngDoCheck()`
+
+ When it runs: On every change detection run, after `ngOnInit` and `ngOnChanges`.
+ Use case: Custom change detection logic beyond Angular’s default.
+
+
+
+ 4. `ngAfterContentInit()`
+
+ When it runs: After content (from `<ng-content>`) is projected into the component.
+ Use case: Work with projected content for the first time.
+
+
+
+ 5. `ngAfterContentChecked()`
+
+ When it runs: After every check of projected content.
+ Use case: Respond after projected content is checked/updated.
+
+
+
+ 6. `ngAfterViewInit()`
+
+ When it runs: After component’s view and child views are initialized.
+ Use case: Access child components or DOM elements via `@ViewChild`.
+
+
+
+ 7. `ngAfterViewChecked()`
+
+ When it runs: After every check of the component’s view and child views.
+ Use case: Run logic after the view updates.
+
+
+
+ 8. `ngOnDestroy()`
+
+ When it runs: Just before Angular destroys the component.
+ Use case: Clean up — unsubscribe from observables, remove event listeners, release resources.
+
+
+https://github.com/netsrishtiadmin/angulartrainingwipro
+
+https://github.com/netsrishtiadmin/angulartrainingwipro.git
+
+https://github.com/netsrishtiadmin/angulartrainingwipro
+
+http://netsrishti.net/training/angular/src.txt
+
+https://github.com/netsrishtiadmin/angulartrainingwipro
